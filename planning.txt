@@ -1,0 +1,14 @@
+# This is a planning text file to create an outline of the application
+
+
+# This section is a description of what this application entails
+
+> Users can see a list of hotels
+> Users can book a hotel
+> Users can get a reservation ticket
+
+
+# This section is a description of the classes used in this application
+> user class
+> hotel class
+> reservation ticket class
