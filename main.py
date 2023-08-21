@@ -2,7 +2,7 @@ import pandas
 
 
 """ Initialize data frames"""
-df = pandas.read_csv("hotels.csv", dtype={"id":str})    # takes in all 'id' values as str
+df = pandas.read_csv("hotels.csv", dtype={"id":str})
 df_cards = pandas.read_csv("cards.csv", dtype=str).to_dict(orient="records")
 df_cards_security = pandas.read_csv("card_security.csv", dtype=str)
 
@@ -45,10 +45,10 @@ class ReservationTicket:
 class CreditCard:
     def __init__(self, number):
         self.number = number
-    def validate(self,expiration,holder,cvc):
+    def validate(self, expiration, holder, cvc):
         """Validate card information from .csv file"""
-        card_data={"number":self.number, "expiration":expiration,
-                   "holder":holder, "cvc":cvc}
+        card_data={"number": self.number, "expiration": expiration,
+                   "holder": holder, "cvc": cvc}
         if card_data in df_cards:
             return True
         else:
@@ -70,9 +70,9 @@ hotel_id = input("Enter the ID of the hotel: ")
 hotel = Hotel(hotel_id)
 
 if hotel.available():
-    credit_card = SecureCreditCard(number="1234567890123456")
-    if credit_card.validate(expiration="5/27", holder="BRUCE RUDD", cvc="974"):
-        if credit_card.authenticate(given_passowrd="mypass"):
+    credit_card = SecureCreditCard(number="1254767899128446")
+    if credit_card.validate(expiration="4/27", holder="JAYCE PILTOVER", cvc="603"):
+        if credit_card.authenticate(given_password="mypass"):
             hotel.book()
             user_name = input("Please enter your name: ")
             reservation_ticket = ReservationTicket(customer_name=user_name, hotel_obj=hotel)
